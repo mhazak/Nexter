@@ -14,3 +14,40 @@ body {
   color: #6D5D4B;
   font-weight: 300;
   line-height: 1.6; }
+
+.container {
+  display: grid;
+  /*	layout will have six rows: 
+			- first row 80 of viewport
+			- second row of minimal content height (depends on content)
+			- third row of 40% viewport width
+			- three rows will have min-content height (repeat function => first attr. stands for how many rows, second height of row)
+	*/
+  grid-template-rows: 80vh min-content 40vw repeat(3, min-content); }
+
+.sidebar {
+  background-color: #c69963; }
+
+.header {
+  background-color: #54483A; }
+
+.realtors {
+  background-color: #101d2c; }
+
+.features {
+  background-color: #f9f7f6; }
+
+.story__pictures {
+  background-color: #c69963; }
+
+.story__content {
+  background-color: #f9f7f6; }
+
+.homes {
+  background-color: #101d2c; }
+
+.gallery {
+  background-color: #54483A; }
+
+.footer {
+  background-color: #101d2c; }

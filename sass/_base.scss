@@ -21,4 +21,16 @@ $font-display: 'Josefin Sans', sans-serif;
 // 10px/16px = 62.5% = 10px=1rem
 html { box-sizing: border-box; font-size: 62.5%; }
 
-body{ font-family: $font-primary; color: $color-grey-dark-2; font-weight: 300; line-height: 1.6; }
+body { font-family: $font-primary; color: $color-grey-dark-2; font-weight: 300; line-height: 1.6; }
+
+.container { 
+	display: grid;
+
+	/*	layout will have six rows: 
+			- first row 80 of viewport
+			- second row of minimal content height (depends on content)
+			- third row of 40% viewport width
+			- three rows will have min-content height (repeat function => first attr. stands for how many rows, second height of row)
+	*/
+	grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+}
