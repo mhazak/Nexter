@@ -1,1 +1,8 @@
-.features { background-color: $color-grey-light-1; }
+.features { 
+    
+    background-color: $color-grey-light-1;
+
+    // width of features scetion starts at [center-start] and end at [center-end] setted in root
+    grid-column: center-start / center-end;
+    // grid-row: 2/3;
+}
