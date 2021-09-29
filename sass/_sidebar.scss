@@ -1,1 +1,12 @@
-.sidebar { background-color: $color-primary; }
+.sidebar { 
+    background-color: $color-primary;
+
+    // width of sidebar 
+    // names and positions of columns defined in base.scss
+    grid-column: sidebar-start / sidebar-end;
+
+    // sidebar height
+    // starts at position 1 (first row) and go until the end (-1)
+    grid-row: 1 / -1;
+
+}

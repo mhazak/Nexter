@@ -34,10 +34,12 @@ body {
 					- second attribute of maximal width of each column(14rem)
 			- 1 column (1fr) which fullfils remaining space
 	*/
-  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]), [center-end] 1fr; }
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end]; }
 
 .sidebar {
-  background-color: #c69963; }
+  background-color: #c69963;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1; }
 
 .header {
   background-color: #54483A; }

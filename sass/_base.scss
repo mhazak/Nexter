@@ -44,5 +44,5 @@ body { font-family: $font-primary; color: $color-grey-dark-2; font-weight: 300; 
 					- second attribute of maximal width of each column(14rem)
 			- 1 column (1fr) which fullfils remaining space
 	*/
-	grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]), [center-end] 1fr;
+	grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] 1fr [full-end];
 }
