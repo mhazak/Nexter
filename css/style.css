@@ -25,14 +25,16 @@ body {
 	*/
   grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
   /* 
-		creates 9 column layout: 
-			- 1 column with 8rem fixed width 
-			- 8 columns with width setted by minmax function:
+		creates 11 column layout: 
+			- 1 column with 8rem fixed width [sidebar-start][sidebar-end]
+			- 1 column (1fr) which fullfils remaining space [full-start]
+			- 8 columns with width setted by minmax function: [col-start] [col-end]
 				- minmax sets: 
 					- first attribute of minimal width of each column,
 					- second attribute of maximal width of each column(14rem)
+			- 1 column (1fr) which fullfils remaining space
 	*/
-  grid-template-columns: 8rem repeat(8, minmax(min-content, 14rem)); }
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] 1fr [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]), [center-end] 1fr; }
 
 .sidebar {
   background-color: #c69963; }
