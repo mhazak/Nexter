@@ -1,12 +1,51 @@
 .story {
 
-    &__pictures { 
-        background-color: $color-primary; 
-        grid-column: full-start / col-end 4;
-    }
+	
+	&__pictures { 
+		background-color: $color-primary; 
+		grid-column: full-start / col-end 4;
+	}
+	
+	&__content { 
 
-    &__content { 
-        background-color: $color-grey-light-1; 
-        grid-column: col-start 5 / full-end;
-    }
+		/*
+			FLEX SOLUTION
+			- we need to use just one direction, not two
+			- in this case its better to use display flex than display grid 
+			
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			
+			- fix for stretched btn to 100% width of flex container
+			align-items: flex-start;
+			
+		*/
+		
+		/*
+			GRID SOLUTION
+		*/
+
+		display: grid;
+
+		// aligns content to the center vertically
+		align-content: center;
+
+		/*
+			horizontally aligning of items:
+				- like flex-direction: row;
+				- justify-content: flex-start;
+		*/
+		justify-items: start;
+
+		background-color: $color-grey-light-1; 
+		grid-column: col-start 5 / full-end;
+		padding: 6rem 8vw;
+	}
+
+	&__text {
+		font-size: 1.5rem;
+		font-style: italic;
+		margin-bottom: 4rem;
+	}
 }
