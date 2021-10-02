@@ -15,7 +15,9 @@ $font-primary: 'Nunito', sans-serif;
 $font-display: 'Josefin Sans', sans-serif;
 
 // RESPONSIVE BREAKPOINTS
+// counting by number of pixels / 16
 $bp-largest: 75em; // 1200px
+$bp-large: 62.5em; // 1000px
 
 *,
 *::before,
@@ -55,5 +57,15 @@ body { font-family: $font-primary; color: $color-grey-dark-2; font-weight: 300; 
 			- 1 column (1fr max or 6rem min) which fullfils remaining space
 	*/
 	grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+
+	@media only screen and (max-width: $bp-large) {
+		
+		// as we removed sidebar from column, we will put it into the top (first row)
+		grid-template-rows: 6rem 80vh min-content 40vw repeat(3, min-content);
+		
+		// removes first column which was used as a side-bar
+		grid-template-columns: [full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+	}
+
 
 }
