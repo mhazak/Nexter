@@ -1,64 +1,74 @@
 .features { 
-    
-    // width of features scetion starts at [center-start] and end at [center-end] setted in root
-    grid-column: center-start / center-end;
+	
+	// width of features scetion starts at [center-start] and end at [center-end] setted in root
+	grid-column: center-start / center-end;
 
-    margin: 15rem 0;
+	margin: 15rem 0;
 
-    // creates display grid inside grid
-    display: grid;
+	// creates display grid inside grid
+	display: grid;
 
-    /* 
-        - creates as much cols as fit on screen between 25rem and 1 fr, same width | rows are automatically generated
-        - as we have auto generated rows, e.g. at the start we have:
-            - 2 rows and 3 cols (each 400px):
-                - as each column will be decreased to less than 250px:
-                - layout will be changed to 3 rows by 2 cols (each 400px circa)
-            - same story until 1 row, 6 cols (each 400px circa)
-    */
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
-    
-    // gap between grid-elements (both vertically and horizontally)
-    grid-gap: 6rem;
+	/* 
+		- creates as much cols as fit on screen between 25rem and 1 fr, same width | rows are automatically generated
+		- as we have auto generated rows, e.g. at the start we have:
+			- 2 rows and 3 cols (each 400px):
+				- as each column will be decreased to less than 250px:
+				- layout will be changed to 3 rows by 2 cols (each 400px circa)
+			- same story until 1 row, 6 cols (each 400px circa)
+	*/
+	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	
+	// gap between grid-elements (both vertically and horizontally)
+	grid-gap: 6rem;
 
-    /*
-        - children elements will be align to the start (default-stretch)
-        - if we align-items in this class:
-            - it will aligns .feature elements
-    */
-    align-items: start;
+	/*
+		- children elements will be align to the start (default-stretch)
+		- if we align-items in this class:
+			- it will aligns .feature elements
+	*/
+	align-items: start;
 }
 
 .feature {
-    
-    // third grid inside two parent display's grid
-    display: grid;
 
-    // first column is icon (4.5 is defined width of icon)
-    // second column will be rest of space (1fr)
-    grid-template-columns: min-content 1fr;
+	// properties for older browsers
+	float: left;
+	width: 33.3333%;
+	margin-bottom: 6rem;;
+	
+	// if display: grid is supported, use it instead of float
+	@supports (display: grid) {
+		width: auto;
+		margin-bottom: 0;
+		// third grid inside two parent display's grid
+		display: grid;
+	
+		// first column is icon (4.5 is defined width of icon)
+		// second column will be rest of space (1fr)
+		grid-template-columns: min-content 1fr;
+	
+		// gap between rows
+		grid-row-gap: 1.5rem;
+		
+		// gap between columns
+		grid-column-gap: 2.5rem;
+	}
+	
+	&__icon {
+		fill: $color-primary;
+		width: 4.5rem;
+		height: 4.5rem;
+		transform: translateY(-1.1rem);
 
-    // gap between rows
-    grid-row-gap: 1.5rem;
-    
-    // gap between columns
-    grid-column-gap: 2.5rem;
-    
-    &__icon {
-        fill: $color-primary;
-        width: 4.5rem;
-        height: 4.5rem;
-        transform: translateY(-1.1rem);
+		// starts at row 2 and takes (span) two rows in total
+		/* 
+			- if we use 1/1:
+				- we did not specify grid-template-rows, so we can use just number of rows that are specified (explicit)
+		*/
+		grid-row: 1 / span 2;
+	}
 
-        // starts at row 2 and takes (span) two rows in total
-        /* 
-            - if we use 1/1:
-                - we did not specify grid-template-rows, so we can use just number of rows that are specified (explicit)
-        */
-        grid-row: 1 / span 2;
-    }
-
-    &__text {
-        font-size: 1.7rem;
-    }
+	&__text {
+		font-size: 1.7rem;
+	}
 }

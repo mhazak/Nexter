@@ -226,36 +226,43 @@ body {
   margin: 15rem 0;
   display: grid;
   /* 
-        - creates as much cols as fit on screen between 25rem and 1 fr, same width | rows are automatically generated
-        - as we have auto generated rows, e.g. at the start we have:
-            - 2 rows and 3 cols (each 400px):
-                - as each column will be decreased to less than 250px:
-                - layout will be changed to 3 rows by 2 cols (each 400px circa)
-            - same story until 1 row, 6 cols (each 400px circa)
-    */
+		- creates as much cols as fit on screen between 25rem and 1 fr, same width | rows are automatically generated
+		- as we have auto generated rows, e.g. at the start we have:
+			- 2 rows and 3 cols (each 400px):
+				- as each column will be decreased to less than 250px:
+				- layout will be changed to 3 rows by 2 cols (each 400px circa)
+			- same story until 1 row, 6 cols (each 400px circa)
+	*/
   grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
   grid-gap: 6rem;
   /*
-        - children elements will be align to the start (default-stretch)
-        - if we align-items in this class:
-            - it will aligns .feature elements
-    */
+		- children elements will be align to the start (default-stretch)
+		- if we align-items in this class:
+			- it will aligns .feature elements
+	*/
   align-items: start; }
 
 .feature {
-  display: grid;
-  grid-template-columns: min-content 1fr;
-  grid-row-gap: 1.5rem;
-  grid-column-gap: 2.5rem; }
+  float: left;
+  width: 33.3333%;
+  margin-bottom: 6rem; }
+  @supports (display: grid) {
+    .feature {
+      width: auto;
+      margin-bottom: 0;
+      display: grid;
+      grid-template-columns: min-content 1fr;
+      grid-row-gap: 1.5rem;
+      grid-column-gap: 2.5rem; } }
   .feature__icon {
     fill: #c69963;
     width: 4.5rem;
     height: 4.5rem;
     transform: translateY(-1.1rem);
     /* 
-            - if we use 1/1:
-                - we did not specify grid-template-rows, so we can use just number of rows that are specified (explicit)
-        */
+			- if we use 1/1:
+				- we did not specify grid-template-rows, so we can use just number of rows that are specified (explicit)
+		*/
     grid-row: 1 / span 2; }
   .feature__text {
     font-size: 1.7rem; }
